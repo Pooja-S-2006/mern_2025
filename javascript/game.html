@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Stone Paper Scissor</h1>
+    <h2>Choose Any One</h2>
+    <button onclick="getResult('rock')">Rock</button>
+    <button onclick="getResult('paper')">Paper</button>
+    <button onclick="getResult('scissor')">Scissor</button>
+    <h1 id="result"></h1>
+    <h1 id="choice"></h1>
+
+    <script>
+        function getResult(userChoice){
+            var choice = ["rock","paper","scissor"];
+            var computerChoice = choice[Math.floor(Math.random()*3)];
+            console.log("Computer choice: " + computerChoice);
+            var result ='';
+            if(userChoice === computerChoice){
+                result = "DRAW 🙌";
+            }
+
+            else if((userChoice ==='scissor' && computerChoice ==='rock') || 
+            (userChoice ==='rock' && computerChoice ==='paper') || 
+            (userChoice === 'paper' && computerChoice === 'scissor')){
+                result = "LOSE 😢";
+            }
+
+            else{
+                result = "WIN 🥳";
+            }
+
+            document.getElementById('result').innerHTML = result;
+            document.getElementById("choice").innerHTML=`Computer chose: ${computerChoice}`;
+
+            var details =async () => {
+                var response = await fetch("https://dummyjson.com/users");
+                var users = await response.json();
+                console.log(users);
+            }
+
+            details();
+
+
+            
+        }
+    </script>
+
+</body>
+</html>
