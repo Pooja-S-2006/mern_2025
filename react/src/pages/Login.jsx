@@ -1,31 +1,34 @@
 import React from 'react'
+import { useState } from 'react'
 
 const Login = () => {
-    const handleSubmit = (e) =>{
-        e.preventDefault();
-    const username = e.target.username.value;
-    const password = e.target.password.value;
-    console.log('Username:', username);
-    console.log('Password:', password);
-    };
+  const [formData,setFormData] = useState({
+    email: '',
+    password: ''
+  })
+  const handleSubmit =(e) =>{
+    e.preventDefault();
+    console.log(formData)
+    setFormData({
+      email: '',
+      password: ''
+    })
+  }
+  const handleChange = (e) =>{
+    setFormData((prev) => ({...prev, [e.target.name]: e.target.value}))
+  }
   return (
-    <>
-    <div>Login</div>
-    <form onSubmit={handleSubmit}>
-        <div>
-            <label htmlFor="username">Username</label>
-            <input type = "text" id = "username" name = "username" placeholder = "Enter your name" required />
-            <br />
-            <br />  
-            <label htmlFor="password">Password</label>
-            <input type = "password" id = "password" name = "password" placeholder = "Enter your password" required />
-            <br />
-            <br />
-            <button type="submit">Login</button>
-
+    <div>
+      <h1>Login</h1>
+      <form action = "" onSubmit={handleSubmit}>
+        
+        <label>Email</label>
+        <input type="email" name="email" value = {formData.email} onChange={handleChange} />
+        <label>Password</label>
+        <input type="password" name="password" value = {formData.password} onChange={handleChange}/>
+        <button onClick={handleSubmit}>Login</button>
+        </form>
         </div>
-    </form>
-    </>
   )
 }
 

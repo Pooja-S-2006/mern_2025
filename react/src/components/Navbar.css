@@ -1,0 +1,17 @@
+.navbar{
+    display:flex;
+    background-color: cadetblue;
+    padding: 10px;
+}
+.Link{
+    list-style: none;
+    background-color: darkgray;
+    padding: 10px;
+    border: 2px solid plum;
+    border-radius: 10px;
+
+}
+.Link:hover{
+    background-color: lightseagreen;
+    color: white;
+}
