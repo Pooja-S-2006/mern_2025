@@ -7,6 +7,9 @@ const Hooks = () => {
         <Link to = '/State'>useState</Link>
         <Link to = '/Effect'>useEffect</Link>
         <Link to = '/Effect2'>useEffect2</Link>
+        <Link to = '/Ref'>useRef</Link>
+        <Link to = '/Reducer'>Reducer</Link>
+      
     </div>
   )
 }
