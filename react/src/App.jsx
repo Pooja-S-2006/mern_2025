@@ -15,6 +15,7 @@ import Effect2 from './hooks/Effect2'
 import Ref from './hooks/Ref'
 import Reducer from './hooks/Reducer'
 import Context from './hooks/Context'
+import Todo from './components/Todo'
 import {Routes,Route} from 'react-router-dom'
 
 
@@ -49,6 +50,7 @@ const App = () => {
         <Route path = '/ref' element = {<Ref />} />
         <Route path = '/reducer' element = {<Reducer />} />
         <Route path = '/context' element = {<Context />} />
+        <Route path = '/todo' element = {<Todo />} />
 
 
 

@@ -7,11 +7,15 @@
 const express = require('express');
 
 const dotenv = require('dotenv');
+const todoRoute = require('./routers/todoRouters')
 dotenv.config();
 const connectDB = require('./config/db');
+const cors = require('cors');
 const router = require('./routers/egRouter')
 
+
 const app = express();
+app.use(cors());
 const PORT = process.env.PORT;
 connectDB();
 // app.get('/get',(req,res)=>{
@@ -33,8 +37,13 @@ connectDB();
 //     res.send('Delete route is working');
 
 // })
+
+
+
+
 app.use(express.json())
 app.use(router)
+app.use('/todo',todoRoute)
 app.listen(PORT,()=>{
     console.log(`Server running on port http://localhost:${PORT}`);
 })
